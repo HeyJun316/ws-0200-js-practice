@@ -3,13 +3,17 @@
  *
  */
 function helloWorld() {
+  return 'Hello World';
 }
+
 
 /**
  *  1.2 const を使って"hoge"という文字列を定義した変数を定義し、それを出力する関数を定義してください
  *
  */
 function displayConst() {
+  const text = 'hoge';
+  return text;
 }
 
 /**
@@ -17,6 +21,8 @@ function displayConst() {
  *
  */
 function displayLet() {
+  let text = 'hoge';
+  return text;
 }
 
 /**
@@ -24,6 +30,7 @@ function displayLet() {
  *
  */
 function displayArgument(arg) {
+  return arg;
 }
 
 /**
@@ -31,6 +38,7 @@ function displayArgument(arg) {
  *
  */
 function sumTwoArgs(a, b) {
+  return a, b;
 }
 
 /**
@@ -38,6 +46,7 @@ function sumTwoArgs(a, b) {
  *
  */
 function subtractTwoArgs(a, b) {
+  return a - b;
 }
 
 /**
@@ -45,6 +54,11 @@ function subtractTwoArgs(a, b) {
  *
  */
 function quotientTwoArgs(a, b) {
+  if (a === 0 || b === 0) {
+    return null;
+  } else {
+    return a % b;
+  };
 }
 
 /**
@@ -52,6 +66,7 @@ function quotientTwoArgs(a, b) {
  *
  */
 function productTwoArgs(a, b) {
+  return a * b;
 }
 
 /**
@@ -59,6 +74,7 @@ function productTwoArgs(a, b) {
  *
  */
 function remainderTwoArgs(a) {
+  return a % 2;
 }
 
 /**
@@ -66,6 +82,11 @@ function remainderTwoArgs(a) {
  *
  */
 function isEven(a) {
+  if (a % 2 === 0) {
+    return 'OK';
+  } else {
+    return 'NG';
+  }
 }
 
 /**
@@ -73,6 +94,7 @@ function isEven(a) {
  *
  */
 function concatString(a, b) {
+  return a + b;
 }
 
 module.exports = {
@@ -86,5 +108,5 @@ module.exports = {
   productTwoArgs,
   remainderTwoArgs,
   isEven,
-  concatString
-}
+  concatString,
+};
