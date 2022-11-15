@@ -22,9 +22,33 @@
  */
 
 class Person {
+  constructor(name, age, bio) {
+    this.name = '';
+    this.age = 0;
+    this.bio = '';
+    console.log(name, age, bio);
+    console.log(this.name, this.age, this.bio);
+  }
+
+  sayHi() {
+    console.log('Hi!');
+  }
+  static describe() {
+    console.log('This is a Person class');
+  }
+
+  get isUnderage() {
+    if (this.age < 20) {
+      console.log(this.age);
+      return true;
+    } else {
+      return false
+    }
+  }
 }
 
-function main () {
+
+function main() {
   const person = new Person('ichiro', 54, 'I like to play baseball')
   person.sayHi()
   Person.describe()
@@ -33,6 +57,8 @@ function main () {
   person.bio = 'I like to play basketball'
   return person.toString()
 }
+
+console.log(main());
 
 module.exports = {
   Person,

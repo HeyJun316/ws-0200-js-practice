@@ -4,6 +4,9 @@
  */
 
 function printArray(array) {
+  array.forEach(element => {
+    console.log(element);
+  });
 }
 
 /**
@@ -22,6 +25,8 @@ function printArray(array) {
  *
  */
 function getDays() {
+  let dayOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+  return dayOfWeek;
 }
 
 /**
@@ -31,10 +36,11 @@ function getDays() {
  *    [1, 2, 3], 1 => true
  *    [1, 2, 3], 5 => false
  *    [], 5 => false
- *
  */
 
 function findNum(array, num) {
+  // const result = array.filtert(item => num.inlcudes(item));
+  // return result;
 }
 
 /**
@@ -44,11 +50,27 @@ function findNum(array, num) {
  *    [1, 2, 3] => false
  *    [1, 2, 2, 3] => true
  *    [] => false
+ *  ref url : https://www.techiedelight.com/ja/check-array-contains-duplicates-javascript/
+ *  ref url : https://programmercollege.jp/column/7244/
  *
+ *  ●Array.prototype.indexOf : 引数の内容と同じ内容を持つ最初の配列要素の添字を返す
+ *  →https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf
+ *  ●Array.prototype.filter :  配列の中から、提供された関数で実装されたテストに合格した要素のみを抽出したシャローコピーを作成する
+ *    ＊シャローコピーとディープコピーの違い
+ *    →https://medium-company.com/%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%82%B3%E3%83%94%E3%83%BC%E3%81%A8%E3%82%B7%E3%83%A3%E3%83%AD%E3%83%BC%E3%82%B3%E3%83%94%E3%83%BC%E3%81%AE%E9%81%95%E3%81%84/
  */
 
+let array = [1, 3, 4, 2, 3, 2, 3, 3, 4, 5, 2];
 function isDuplicate(array) {
+  let array2 = array.filter(function (element, index, array) {
+    if (array.indexOf(element) === index) {
+      return true;
+    } else {
+      return false;
+    }
+  });
 }
+isDuplicate(array);
 
 module.exports = {
   printArray,

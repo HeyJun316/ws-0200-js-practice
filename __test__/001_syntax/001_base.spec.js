@@ -84,6 +84,9 @@ describe('quotientTwoArgs', () => {
   test('zero divide', () => {
     expect(quotientTwoArgs(3, 0)).toEqual(null)
   });
+  test('normal divide2', () => {
+    expect(quotientTwoArgs(10, 2)).toEqual(5)
+  });
 });
 
 describe('productTwoArgs', () => {

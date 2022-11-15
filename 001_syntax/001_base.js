@@ -3,17 +3,16 @@
  *
  */
 function helloWorld() {
-  return 'Hello World';
+  console.log('Hello World');
 }
-
-
+console.log(helloWorld());
 /**
  *  1.2 const を使って"hoge"という文字列を定義した変数を定義し、それを出力する関数を定義してください
  *
  */
 function displayConst() {
   const text = 'hoge';
-  return text;
+  console.log(text);
 }
 
 /**
@@ -22,7 +21,7 @@ function displayConst() {
  */
 function displayLet() {
   let text = 'hoge';
-  return text;
+  console.log(text);
 }
 
 /**
@@ -30,18 +29,18 @@ function displayLet() {
  *
  */
 function displayArgument(arg) {
-  return arg;
+  console.log(arg);
 }
 
-/**
+/** NG
  *  1.5 渡された二つの引数の合計を返却するメソッドを実装してください
  *
  */
 function sumTwoArgs(a, b) {
-  return a, b;
+  return a + b;
 }
 
-/**
+/** NG
  *  1.6 渡された二つの引数の差を返却するメソッドを実装してください
  *
  */
@@ -54,10 +53,10 @@ function subtractTwoArgs(a, b) {
  *
  */
 function quotientTwoArgs(a, b) {
-  if (a === 0 || b === 0) {
+  if (b === 0) {
     return null;
   } else {
-    return a % b;
+    return Math.floor(a / b);
   };
 }
 
@@ -77,16 +76,12 @@ function remainderTwoArgs(a) {
   return a % 2;
 }
 
-/**
+/** NG
  *  1.10 渡された引数が2の倍数であることを確認するメソッドを実装してください
  *
  */
 function isEven(a) {
-  if (a % 2 === 0) {
-    return 'OK';
-  } else {
-    return 'NG';
-  }
+  return a % 2 === 0;
 }
 
 /**
