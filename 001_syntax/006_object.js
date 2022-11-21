@@ -28,11 +28,12 @@ console.log(getPersonObject());
  *    gender: 'female'
  *
  */
-
 function mutateObject(person) {
-
+  person.name = 'Mary';
+  person.age = 37;
+  person.gender = 'female';
+  return person;
 }
-
 /**
  *  6.3 下記引数で渡される配列にランダムな1 ~10の数字を割り振り、オブジェクトとして返す
  *      関数を実装してください
@@ -52,6 +53,10 @@ function mutateObject(person) {
  *       Mike: [Random Number]
  *     }
  * 参考：https://qreat.tech/3584/
+ * mapでkey変更する
+ * 参考：https://qiita.com/tommy0218/items/f21ffbad9578a5e17247
+ * プロパティ名変更
+ * 参考：https://programmer-life.work/javascript/object-rename-key-javascript
  */
 
 
@@ -62,9 +67,30 @@ let persons = [
   'Mike'
 ];
 function assignNumber(persons) {
-  let randomNum = Math.random();
-  let a = Object.fromEntries(persons.map(obj => [obj.id, obj]))
-  console.log(a);
+  let obj = {};
+  let randomNumArray = [];
+  // 乱数を配列に代入
+  for (let i = 0; i < persons.length; i++) {
+    let randomNum = Math.floor(Math.random() * 9) + 1;
+    randomNumArray.push(randomNum);
+  }
+  obj = Object.assign({}, randomNumArray);
+  console.log(randomNumArray);
+  console.log(obj);
+
+  persons.forEach((pElm) => {
+    randomNumArray.forEach((rElm) => {
+      obj[pElm] = rElm[i];
+    });
+  });
+
+  persons = {
+    persons[0]: randomNum,
+    persons[1]: randomNum,
+    persons[2]: randomNum,
+    persons[3]: randomNum
+  };
+  return console.log(obj);
 }
 
 // persons.forEach((e, index) => {

@@ -60,7 +60,7 @@ function substring(str, a, b) {
  * */
 
 function isInclude(a, b) {
-  a.includes(b);
+  return a.includes(b);
 }
 
 /**
@@ -79,9 +79,10 @@ function isInclude(a, b) {
  */
 
 function printByChar(str) {
-  console.log(str.split(''));
+  for (let i = 0; i < str.length; i++) {
+    console.log(str.charAt(i));
+  }
 }
-
 
 module.exports = {
   length,

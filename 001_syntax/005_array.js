@@ -39,8 +39,11 @@ function getDays() {
  */
 
 function findNum(array, num) {
-  // const result = array.filtert(item => num.inlcudes(item));
-  // return result;
+  if (array.includes(num)) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 /**
@@ -58,17 +61,14 @@ function findNum(array, num) {
  *  ●Array.prototype.filter :  配列の中から、提供された関数で実装されたテストに合格した要素のみを抽出したシャローコピーを作成する
  *    ＊シャローコピーとディープコピーの違い
  *    →https://medium-company.com/%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%82%B3%E3%83%94%E3%83%BC%E3%81%A8%E3%82%B7%E3%83%A3%E3%83%AD%E3%83%BC%E3%82%B3%E3%83%94%E3%83%BC%E3%81%AE%E9%81%95%E3%81%84/
+ * setオブジェクト 要素の数を数える setElemente.size
+ * https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Set/size
  */
 
-let array = [1, 3, 4, 2, 3, 2, 3, 3, 4, 5, 2];
+let array = [1, 2, 2, 3];
 function isDuplicate(array) {
-  let array2 = array.filter(function (element, index, array) {
-    if (array.indexOf(element) === index) {
-      return true;
-    } else {
-      return false;
-    }
-  });
+  const setElements = new Set(array);
+  return setElements.size !== array.length;
 }
 isDuplicate(array);
 
