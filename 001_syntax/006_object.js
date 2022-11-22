@@ -57,45 +57,20 @@ function mutateObject(person) {
  * 参考：https://qiita.com/tommy0218/items/f21ffbad9578a5e17247
  * プロパティ名変更
  * 参考：https://programmer-life.work/javascript/object-rename-key-javascript
+ *  乱数
+ *  let randomNum = Math.floor(Math.random() * 9) + 1;
  */
-
-
-let persons = [
-  'Bob',
-  'Mary',
-  'Ann',
-  'Mike'
-];
 function assignNumber(persons) {
   let obj = {};
-  let randomNumArray = [];
-  // 乱数を配列に代入
-  for (let i = 0; i < persons.length; i++) {
-    let randomNum = Math.floor(Math.random() * 9) + 1;
-    randomNumArray.push(randomNum);
-  }
-  obj = Object.assign({}, randomNumArray);
-  console.log(randomNumArray);
-  console.log(obj);
-
-  persons.forEach((pElm) => {
-    randomNumArray.forEach((rElm) => {
-      obj[pElm] = rElm[i];
-    });
+  persons.forEach((person) => {
+    obj[person] = Math.floor(Math.random() * 9) + 1;
   });
 
-  persons = {
-    persons[0]: randomNum,
-    persons[1]: randomNum,
-    persons[2]: randomNum,
-    persons[3]: randomNum
-  };
-  return console.log(obj);
+  return obj;
 }
+const persons = ['Bob', 'Mary', 'Ann', 'Mike'];
+assignNumber(persons);
 
-// persons.forEach((e, index) => {
-//   obj[persons] = radomNum;
-// });
 /**
  *  6.4 配列に重複した要素があれば、true、そうでなければfalseを返す関数を実装してください
  *      但し、オブジェクトを使って実装すること
@@ -108,6 +83,7 @@ function assignNumber(persons) {
  */
 
 function isDuplicate(array) {
+
 }
 
 module.exports = {
