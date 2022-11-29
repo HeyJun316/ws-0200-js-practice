@@ -27,6 +27,7 @@ class List {
    */
   get size() {
     // TODO:
+    return this.data.length();
   }
 
   /** 引数で渡された添字のデータを取得する
@@ -36,6 +37,7 @@ class List {
    */
   index(index) {
     // TODO:
+    return this.data.indexOf(index);
   }
 
   /** リストの 要素を追加する
@@ -45,6 +47,7 @@ class List {
    */
   push(item) {
     // TODO:
+    return this.data.push(item);
   }
 
   /** 与えられた引数により、リストの 要素を削除する
@@ -54,6 +57,7 @@ class List {
    */
   remove(targetIndex) {
     // TODO:
+    return this.data.filter(targetIndex);
   }
 
   /** リストの 末尾の要素を取得する
@@ -61,8 +65,9 @@ class List {
    * @param {Number} targetIndex
    * @return {Number}
    */
-  pop() {
+  pop(targetIndex) {
     // TODO:
+    return this.data.pop(targetIndex);
   }
 
   /** リストの 先頭の要素を取得する
@@ -71,6 +76,7 @@ class List {
    */
   shift() {
     // TODO:
+    return this.data.shift();
   }
 
   /** リストの の中から引数に合致する値を取得する
@@ -82,6 +88,7 @@ class List {
    */
   find(target) {
     // TODO:
+
   }
 
   /** リストの の中から引数に合致する値のindexを取得する。見つからない場合は-1を返す
@@ -106,6 +113,7 @@ class List {
    */
   filter(target) {
     // TODO:
+    // filter(target);]]
   }
 }
 
@@ -136,6 +144,7 @@ class Stack {
    */
   push(item) {
     // TODO:
+    return this.data.push();
   }
 
   /** スタックから要素を取得する
@@ -145,6 +154,7 @@ class Stack {
    */
   pop() {
     // TODO:
+    return this.data.
   }
 
   /** スタックの末尾の要素を参照する
