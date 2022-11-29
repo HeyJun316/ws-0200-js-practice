@@ -73,7 +73,8 @@ assignNumber(persons);
 
 /**
  *  6.4 配列に重複した要素があれば、true、そうでなければfalseを返す関数を実装してください
- *      但し、オブジェクトを使って実装すること
+ *      但し、オブジェクトを使って実装すること (Oのnで解く)
+ * objのkeyはユニークなので、keyに値を入れることで重複を防ぐ
  *
  *  example:
  *    [1, 2, 3] => false
@@ -83,7 +84,14 @@ assignNumber(persons);
  */
 
 function isDuplicate(array) {
-
+  let obj = {};
+  for (let i = 0; i < array.length; i++) {
+    if (obj[array[i]]) {
+      return true;
+    }
+    obj[array[i]] = true;
+  }
+  return false;
 }
 
 module.exports = {

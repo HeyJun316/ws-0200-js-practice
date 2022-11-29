@@ -48,6 +48,7 @@ function findNum(array, num) {
 
 /**
  *  5.4 配列に重複した要素があれば、true、そうでなければfalseを返す関数を実装してください
+ * →for文で
  *
  *  example:
  *    [1, 2, 3] => false
@@ -61,16 +62,22 @@ function findNum(array, num) {
  *  ●Array.prototype.filter :  配列の中から、提供された関数で実装されたテストに合格した要素のみを抽出したシャローコピーを作成する
  *    ＊シャローコピーとディープコピーの違い
  *    →https://medium-company.com/%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%82%B3%E3%83%94%E3%83%BC%E3%81%A8%E3%82%B7%E3%83%A3%E3%83%AD%E3%83%BC%E3%82%B3%E3%83%94%E3%83%BC%E3%81%AE%E9%81%95%E3%81%84/
- * setオブジェクト 要素の数を数える setElemente.size
- * https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Set/size
+*   setオブジェクト 要素の数を数える setElemente.size
+*   https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Set/size
  */
 
-let array = [1, 2, 2, 3];
 function isDuplicate(array) {
-  const setElements = new Set(array);
-  return setElements.size !== array.length;
+  for (let i = 0; i < array.length; i++) {
+    for (let j = i + 1; j < array.length; j++) {
+      if (array[i] === array[j]) {
+        return true;
+      }
+    }
+  }
+  return false;
+  // const setElements = new Set(array);
+  // return setElements.size !== array.length;
 }
-isDuplicate(array);
 
 module.exports = {
   printArray,

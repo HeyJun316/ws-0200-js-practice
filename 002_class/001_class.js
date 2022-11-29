@@ -11,43 +11,45 @@
  *  3. Personクラスにname, age, bioフィールドを追加してください
  *     デフォルト値はname => '', age => 0, bio => ''
  *  4. Personクラスにコンストラクタを宣言して、name, age, bioフィールドを初期化できるようにしてください
- *  5. PersonクラスにisUnderageのゲッターを宣言してくだい。メソッドでは、ageが20歳未満であればtrue,
- *     そうでなければfalseを返すように実装してください
+ *  5. PersonクラスにisUnderageのゲッターを宣言してくだい。メソッドでは、ageが20歳未満であればtrue,そうでなければfalseを返すように実装してください
  *  6. 下記のmain関数が動くように、それぞれ実装をしてください。main関数の修正は不要です。
  *  　　1 ~ 5 が完了していれば、toStringのメソッドを実装するだけで大丈夫です。
  *     toStringは下記の内容の文字列が返却されることが期待値です。(先頭、末尾の空白は不要）
- *
  *      name: ichiro, age: 54, bio: I like to play baseball
  *
  */
 
 class Person {
-  constructor(name, age, bio) {
-    this.name = '';
-    this.age = 0;
-    this.bio = '';
-    console.log(name, age, bio);
-    console.log(this.name, this.age, this.bio);
-  }
+  // 3 4
+  constructor(name = '', age = 0, bio = '') {
+    this.name = name;
+    this.age = age;
+    this.bio = bio;
+  };
 
+  // 1
   sayHi() {
-    console.log('Hi!');
-  }
-  static describe() {
-    console.log('This is a Person class');
+    return console.log('Hi!!');
   }
 
+  // 2
+  static describe() {
+    return console.log('This is a Person class');
+  }
+
+  // 5
   get isUnderage() {
     if (this.age < 20) {
-      console.log(this.age);
       return true;
-    } else {
-      return false
     }
+    return false;
+  };
+
+  // 6
+  toString() {
+    return `name: ${this.name}, age: ${this.age}, bio: ${this.bio}`;
   }
 }
-
-
 function main() {
   const person = new Person('ichiro', 54, 'I like to play baseball')
   person.sayHi()
