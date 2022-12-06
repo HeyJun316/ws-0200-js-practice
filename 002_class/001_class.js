@@ -29,20 +29,17 @@ class Person {
 
   // 1
   sayHi() {
-    return console.log('Hi!!');
+    console.log('Hi!!');
   }
 
   // 2
   static describe() {
-    return console.log('This is a Person class');
+    console.log('This is a Person class');
   }
 
-  // 5
+  // 5 ★
   get isUnderage() {
-    if (this.age < 20) {
-      return true;
-    }
-    return false;
+    return this.age < 20
   };
 
   // 6
@@ -51,11 +48,13 @@ class Person {
   }
 }
 function main() {
+  // message passing = person
+  // person＝レシーバー （型を意識）
   const person = new Person('ichiro', 54, 'I like to play baseball')
   person.sayHi()
   Person.describe()
   person.isUnderage
-
+  person.age = 19
   person.bio = 'I like to play basketball'
   return person.toString()
 }

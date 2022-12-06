@@ -1,4 +1,4 @@
-/**
+/** 計算量 どゆうの違い計算量
  *  2.2.1 バブルソート
  *
  *  バブルソートを実装してください。(入力は数値のみ)
@@ -8,7 +8,7 @@
  *    [5, 3, 2, 1] => [1, 2, 3, 5]
  */
 
-function bubbleSort (array) {
+function bubbleSort(array) {
   return array
 }
 
@@ -22,7 +22,7 @@ function bubbleSort (array) {
  *    [5, 3, 2, 1] => [1, 2, 3, 5]
  */
 
-function insertSort (array) {
+function insertSort(array) {
   return array
 }
 
@@ -36,7 +36,7 @@ function insertSort (array) {
  *    [5, 3, 2, 1] => [1, 2, 3, 5]
  */
 
-function mergeSort (arr) {
+function mergeSort(arr) {
   return arr
 }
 
@@ -53,7 +53,7 @@ function merge(left, right) {
  *    [5, 3, 2, 1] => [1, 2, 3, 5]
  */
 
-function quickSort (a, start = 0, end = (a.length -1)) {
+function quickSort(a, start = 0, end = (a.length - 1)) {
   return a
 };
 

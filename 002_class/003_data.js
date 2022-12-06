@@ -27,7 +27,7 @@ class List {
    */
   get size() {
     // TODO:
-    return this.data.length();
+    return this.data.length;
   }
 
   /** 引数で渡された添字のデータを取得する
@@ -37,7 +37,7 @@ class List {
    */
   index(index) {
     // TODO:
-    return this.data.indexOf(index);
+    return this.data[index];
   }
 
   /** リストの 要素を追加する
@@ -47,22 +47,33 @@ class List {
    */
   push(item) {
     // TODO:
-    return this.data.push(item);
+    this.data.push(item)
   }
 
-  /** 与えられた引数により、リストの 要素を削除する
-   *
+  /** 与えられた引数により、リストの要素を削除する
+   * >なんで68 69を入れ替えるとNG？
+   * >this.data[targetIndex]を直接returnにかけないのはundefinedがないから？
    * @param {Number} targetIndex
+   *
    * @return {Number}
    */
   remove(targetIndex) {
     // TODO:
-    return this.data.filter(targetIndex);
+    let newList = [];
+    let removeNum = undefined;
+    for (let i = 0; i < this.data.length; i++) {
+      if (i !== targetIndex) {
+        newList.push(this.data[i]);
+      }
+    }
+    this.data = newList;
+    removeNum = this.data[targetIndex];
+    return removeNum;
   }
 
   /** リストの 末尾の要素を取得する
    *
-   * @param {Number} targetIndex
+   * @param {Number} element
    * @return {Number}
    */
   pop(targetIndex) {
@@ -79,7 +90,7 @@ class List {
     return this.data.shift();
   }
 
-  /** リストの の中から引数に合致する値を取得する
+  /** リストの中から引数に合致する値を取得する
    *
    * XXX: find関数は使わずにfor文、while文を活用して実装しましょう
    *
@@ -88,10 +99,23 @@ class List {
    */
   find(target) {
     // TODO:
+    // if文実装
+    // for (let i = 0; i < this.data.length; i++) {
+    //   if (target === this.data[i]) {
+    //     return this.data[i];
+    //   }
+    // }
+
+    let i = 0;
+    while (i < this.data.length) {
+      if (target === this.data[i]) {
+        return this.data[i];
+      }
+      i++;
+    }
 
   }
-
-  /** リストの の中から引数に合致する値のindexを取得する。見つからない場合は-1を返す
+  /** リストの中から引数に合致する値のindexを取得する。見つからない場合は-1を返す
    *
    * XXX: findIndex関数は使わずにfor文、while文を活用して実装しましょう
    *
@@ -100,9 +124,26 @@ class List {
    */
   findIndex(target) {
     // TODO:
+    for (let i = 0; i < this.data.length; i++) {
+      if (target === this.data[i]) {
+        // return this.data.indexOf(this.data[i]);
+        return i;
+      }
+    }
+    return -1;
+
+    // while文
+    // let i = 0;
+    // while (i < this.data.length) {
+    //   if (target === this.data[i]) {
+    //     return i;
+    //   }
+    //   i++;
+    // }
+    // return -1;
   }
 
-  /** リストの の中から要素に合致する数を取り除く
+  /** リストの中から要素に合致する数を取り除く
    *
    * 実際のデータ(this.data)に変更を加えることなく、新しい配列を返す形で実装しましょう。
    *
@@ -113,7 +154,13 @@ class List {
    */
   filter(target) {
     // TODO:
-    // filter(target);]]
+    let newList = [];
+    for (let i = 0; i < this.data.length; i++) {
+      if (target !== this.data[i]) {
+        newList.push(this.data[i]);
+      }
+    }
+    return new List(newList);
   }
 }
 
@@ -144,7 +191,7 @@ class Stack {
    */
   push(item) {
     // TODO:
-    return this.data.push();
+    this.data.push(item);
   }
 
   /** スタックから要素を取得する
@@ -154,7 +201,7 @@ class Stack {
    */
   pop() {
     // TODO:
-    return this.data.
+    return this.data.pop();
   }
 
   /** スタックの末尾の要素を参照する
@@ -164,6 +211,8 @@ class Stack {
    */
   peek() {
     // TODO:
+    const index = this.data.length;
+    return this.data[index - 1];
   }
 }
 
@@ -195,6 +244,7 @@ class Queue {
    */
   enqueue(item) {
     // TODO:
+    this.data.push(item);
   }
 
   /** キューから要素を取得する
@@ -203,6 +253,7 @@ class Queue {
    */
   dequeue() {
     // TODO:
+    return this.data.shift();
   }
 
   /** キューの要素を参照する
@@ -211,6 +262,7 @@ class Queue {
    */
   peek() {
     // TODO:
+    return this.data[0];
   }
 }
 

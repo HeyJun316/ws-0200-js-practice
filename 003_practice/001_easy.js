@@ -2,7 +2,7 @@
 /**
  *  文字列の長さ
  *
- *  lengthをも使わずに引数で渡された文字列の長さを求める関数を定義してください
+ *  lengthを使わずに引数で渡された文字列の長さを求める関数を定義してください
  *
  *  example:
  *    'banana' => output: 6
@@ -12,6 +12,12 @@
  */
 
 function length(str) {
+  let strLength = 0;
+
+  while (str[strLength] !== undefined) {
+    strLength++
+  }
+  return strLength;
 }
 
 /**
@@ -26,6 +32,10 @@ function length(str) {
  *
  */
 function reverse(str) {
+  let splitStr = str.split('');
+  let reverseStr = splitStr.reverse();
+  let joinStr = reverseStr.join('');
+  return joinStr;
 }
 
 /**
@@ -41,6 +51,13 @@ function reverse(str) {
  */
 
 function findIndex(str, char) {
+  let strSplit = str.split('');
+  for (let i = 0; i < strSplit.length; i++) {
+    if (strSplit[i] === char) {
+      return i;
+    }
+  }
+  return -1;
 }
 
 /**
@@ -51,12 +68,44 @@ function findIndex(str, char) {
  *  example:
  *    'library', a => output: ['libr', 'ry']
  *    'apple,banana,pineapple', w => output: ['apple', 'banana', 'pineapple']
+ *    'apple,banana,pineapple', ',' => output: ['apple', 'banana', 'pineapple']
  *    'bicycle', a => output: ['bicycle']
- *
+ * 該当文字のインデックス-1 と +1の文字列を返す
+ * なければ文字列・配列をそのまま
  */
 
 function split(a, b) {
+  // let result = [];
+  // let strSplit = a.split('');
+  // for (let i = 0; i < strSplit.length; i++) {
+  //   if (strSplit[i] === b) {
+  //     console.log(strSplit[i] + 'が通過したぜ！');
+  //     let targetIndex = strSplit.indexOf(strSplit[i]);
+  //     console.log(targetIndex);
+  //     let firstStrSplitArray = a.split('', targetIndex).join('');
+  //     console.log(firstStrSplitArray);
+  //     console.log(-strSplit.length);
+  //     let secondStrSplitArray = a.substring(strSplit.length - (strSplit.length - targetIndex - 1));
+  //     console.log(secondStrSplitArray);
+  //     let result = [];
+  //     result.push(firstStrSplitArray, secondStrSplitArray);
+  //     console.log(result);
+  //     return result;
+
+  //   }
+  // }
+  // if (a.includes(',')) {
+  //   return a.split(',');
+  // } else {
+  //   return a.split();
+  // }
 }
+
+
+// let a = 'ken,ken';
+// let b = 'i';
+
+// split(a, b);
 
 /**
  *  配列の合計
@@ -71,6 +120,15 @@ function split(a, b) {
  */
 
 function sum(array) {
+  let sum = 0;
+  // for文で作成
+  // for (let i = 0; i < array.length; i++) {
+  //   sum += array[i];
+  // }
+  // return sum
+
+  const total = array.reduce((accumulator, array) => accumulator + array, sum);
+  return total;
 }
 
 /**
@@ -88,6 +146,14 @@ function sum(array) {
  */
 
 function average(array) {
+  let initialValue = 0;
+  if (array.length !== 0) {
+    for (let i = 0; i < array.length; i++) {
+      initialValue += array[i];
+    }
+    return Math.floor(initialValue / array.length);
+  }
+  return 0;
 }
 
 /**
@@ -103,6 +169,7 @@ function average(array) {
  */
 
 function concat(a, b) {
+  return a.concat(b);
 }
 
 /**
@@ -114,10 +181,15 @@ function concat(a, b) {
  *    [1, 3, 7, 9] => output: 4
  *    [2, 5, 3] => output: 3
  *    [1] => output: 1
- *
+ * 違い
+ * set.size
+ * console.count 引数の要素を数える
+ * array.length
+ * https://qiita.com/sainu/items/7d761c026563a649d046
  */
 
 function size(array) {
+  return array.length;
 }
 
 /**
@@ -129,11 +201,19 @@ function size(array) {
  *    [1, 3, 7, 9] => max: 20, min: 1
  *    [2, 5, 3, 6, 10, -1] => max: 10, min: -1
  *    [1] => max: 1, min: 1
- *    [] => 表示しない
+ *    [] => 表示しない ??
  *
  */
 
 function minMax(array) {
+  // let max_val = Math.max.apply(null, array);
+  // let min_val = Math.min.apply(null, array);
+  let max = array.reduce(function (a, b) { return Math.max(a, b) });
+
+  let mix = array.reduce(function (a, b) { return Math.min(a, b) });
+
+  return console.log('max: ' + max + ', ' + 'min: ' + min);
+
 }
 
 /**
@@ -148,6 +228,11 @@ function minMax(array) {
  */
 
 function seq(num) {
+  let array = [];
+  for (let i = 0; i < num; i++) {
+    array.push(i);
+  }
+  return array;
 }
 
 /**
@@ -163,6 +248,13 @@ function seq(num) {
  */
 
 function omitSeq(num) {
+  let array = [];
+  for (let i = 0; i <= num; i++) {
+    if (i % 2 !== 0) {
+      array.push(i);
+    }
+  }
+  return array;
 }
 
 /**
@@ -178,6 +270,13 @@ function omitSeq(num) {
  */
 
 function filter(array, num) {
+  let filterArray = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] <= num) {
+      filterArray.push(array[i]);
+    }
+  }
+  return filterArray;
 }
 
 
@@ -205,7 +304,26 @@ function filter(array, num) {
  *    ...
  */
 
-function fizzBuzz () {
+function fizzBuzz() {
+  const hundred = 100;
+  for (let i = 1; i <= hundred; i++) {
+    if ((i % 5 === 0) && (i % 3 === 0)) {
+      console.log(`${i} FizzBuzz`);
+      continue;
+    }
+
+    if (i % 3 === 0) {
+      console.log(`${i} Fizz`);
+      continue;
+    }
+
+    if (i % 5 === 0) {
+      console.log(`${i} Buzz`);
+      continue;
+    }
+
+    console.log(i);
+  }
 }
 
 module.exports = {
