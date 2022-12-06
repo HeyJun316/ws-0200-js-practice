@@ -75,30 +75,7 @@ function findIndex(str, char) {
  */
 
 function split(a, b) {
-  // let result = [];
-  // let strSplit = a.split('');
-  // for (let i = 0; i < strSplit.length; i++) {
-  //   if (strSplit[i] === b) {
-  //     console.log(strSplit[i] + 'が通過したぜ！');
-  //     let targetIndex = strSplit.indexOf(strSplit[i]);
-  //     console.log(targetIndex);
-  //     let firstStrSplitArray = a.split('', targetIndex).join('');
-  //     console.log(firstStrSplitArray);
-  //     console.log(-strSplit.length);
-  //     let secondStrSplitArray = a.substring(strSplit.length - (strSplit.length - targetIndex - 1));
-  //     console.log(secondStrSplitArray);
-  //     let result = [];
-  //     result.push(firstStrSplitArray, secondStrSplitArray);
-  //     console.log(result);
-  //     return result;
-
-  //   }
-  // }
-  // if (a.includes(',')) {
-  //   return a.split(',');
-  // } else {
-  //   return a.split();
-  // }
+  return a.split(b);
 }
 
 
