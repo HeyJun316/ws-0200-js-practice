@@ -21,7 +21,7 @@ function length(str) {
 }
 
 /**
- *  文字列の反転
+ *  文字列の反転★
  *
  *  文字列を反転させる関数を実装してください
  *
@@ -29,13 +29,17 @@ function length(str) {
  *    'library' => 'yrarbil'
  *    'krow' => 'work'
  *    'fizzbuzz' => 'zzubzzif'
- *
+ *  for分に変更1回のループで住む
+ *  for 分の時ぐらいにletを使う
  */
 function reverse(str) {
-  let splitStr = str.split('');
-  let reverseStr = splitStr.reverse();
-  let joinStr = reverseStr.join('');
-  return joinStr;
+  // todo:
+  // 元々のコード
+  // let splitStr = str.split('');
+  // let reverseStr = splitStr.reverse();
+  // let joinStr = reverseStr.join('');
+  // return joinStr;
+  return str.split('').reverse().join('')
 }
 
 /**
@@ -51,7 +55,7 @@ function reverse(str) {
  */
 
 function findIndex(str, char) {
-  let strSplit = str.split('');
+  const strSplit = str.split('');
   for (let i = 0; i < strSplit.length; i++) {
     if (strSplit[i] === char) {
       return i;
@@ -61,7 +65,7 @@ function findIndex(str, char) {
 }
 
 /**
- *  指定された文字列を指定された文字で分割
+ *  指定された文字列を指定された文字で分割★
  *
  *  指定された文字列aを指定された一文字bで分割して配列を返却する関数を定義してください
  *
@@ -72,18 +76,27 @@ function findIndex(str, char) {
  *    'bicycle', a => output: ['bicycle']
  * 該当文字のインデックス-1 と +1の文字列を返す
  * なければ文字列・配列をそのまま
+ * for文で実装
+ *
  */
-
+// todo:
 function split(a, b) {
-  return a.split(b);
+  let array = [];
+  let string = '';
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] !== b) {
+      string += a[i];
+    } else {
+      array.push(string);
+      string = '';
+    }
+  }
+  array.push(string);
+  return array;
 }
 
-
-// let a = 'ken,ken';
-// let b = 'i';
-
-// split(a, b);
-
+// 元々ソース
+// return a.split(b);
 /**
  *  配列の合計
  *
@@ -104,8 +117,8 @@ function sum(array) {
   // }
   // return sum
 
-  const total = array.reduce((accumulator, array) => accumulator + array, sum);
-  return total;
+  // const total = array.reduce((accumulator, array) => accumulator + array, sum);
+  return array.reduce((accumulator, array) => accumulator + array, sum);
 }
 
 /**
@@ -119,22 +132,24 @@ function sum(array) {
  *    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] => output: 5
  *    [1] => output: 1
  *    [] => output: 0
- *
+ *    ガード節意識
  */
 
 function average(array) {
-  let initialValue = 0;
-  if (array.length !== 0) {
-    for (let i = 0; i < array.length; i++) {
-      initialValue += array[i];
-    }
-    return Math.floor(initialValue / array.length);
+
+  if (array.length === 0) {
+    return 0;
   }
-  return 0;
+
+  let initialValue = 0;
+  for (let i = 0; i < array.length; i++) {
+    initialValue += array[i];
+  }
+  return Math.floor(initialValue / array.length);
 }
 
 /**
- *  配列の結合
+ *  配列の結合★
  *
  *  渡された二つの配列を連結する関数を実装してください。
  *
@@ -144,13 +159,22 @@ function average(array) {
  *    [], [] => output: []
  *
  */
-
+// todo: DONE!
 function concat(a, b) {
-  return a.concat(b);
+  const array = [];
+  for (let i = 0; i < a.length; i++) {
+    array.push(a[i]);
+  }
+  for (let i = 0; i < b.length; i++) {
+    array.push(b[i]);
+  }
+  return array;
+  // 元々のソース
+  // return a.concat(b);
 }
 
 /**
- *  2.1.2 配列の個数
+ *  2.1.2 配列の個数 ★
  *
  *  渡された配列の要素数を返す関数を実装してください。
  *
@@ -164,9 +188,15 @@ function concat(a, b) {
  * array.length
  * https://qiita.com/sainu/items/7d761c026563a649d046
  */
-
+//todo: DONE!
 function size(array) {
-  return array.length;
+  let elementTotal = 0;
+  for (let i = 0; i < array.length; i++) {
+    elementTotal++;
+  }
+  return elementTotal;
+  // 元々のソース
+  // return array.length;
 }
 
 /**
@@ -179,18 +209,21 @@ function size(array) {
  *    [2, 5, 3, 6, 10, -1] => max: 10, min: -1
  *    [1] => max: 1, min: 1
  *    [] => 表示しない ??
+ // let max_val = Math.max.apply(null, array);
+ // let min_val = Math.min.apply(null, array);
+ // let max = array.reduce(function (a, b) { return Math.max(a, b) });
+ // let mix = array.reduce(function (a, b) { return Math.min(a, b) });
  *
  */
-
+//todo: DONE!
 function minMax(array) {
-  // let max_val = Math.max.apply(null, array);
-  // let min_val = Math.min.apply(null, array);
-  let max = array.reduce(function (a, b) { return Math.max(a, b) });
-
-  let mix = array.reduce(function (a, b) { return Math.min(a, b) });
-
-  return console.log('max: ' + max + ', ' + 'min: ' + min);
-
+  let max = [];
+  let min = [];
+  if (array.length !== 0) {
+    max = Math.max(...array);
+    min = Math.min(...array);
+    console.log(`max: ${max}, min: ${min}`);
+  }
 }
 
 /**
@@ -226,12 +259,17 @@ function seq(num) {
 
 function omitSeq(num) {
   let array = [];
-  for (let i = 0; i <= num; i++) {
-    if (i % 2 !== 0) {
-      array.push(i);
-    }
+  for (let i = 1; i <= num; i = i + 2) {
+    array.push(i);
   }
   return array;
+  // 別のやり方
+  // for (let i = 0; i <= num; i++) {
+  //   if (i % 2 !== 0) {
+  //     array.push(i);
+  //   }
+  // }
+  // return array
 }
 
 /**
@@ -245,6 +283,11 @@ function omitSeq(num) {
  *    [], 7 => []
  *
  */
+// 純粋関数
+// ピュアなメソッド
+// 引数を変更もしくはレシーバーは変更
+//
+// 内部的なローカル変数を描き得てるのはOK
 
 function filter(array, num) {
   let filterArray = [];

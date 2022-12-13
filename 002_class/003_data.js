@@ -1,5 +1,4 @@
 /**
- *  リストの実装
  *
  *  オブジェクト指向やJavaScriptの組み込みAPIの成り立ちを理解するためにも
  *  データ構造をクラスで実装してみましょう。
@@ -26,7 +25,6 @@ class List {
    * @return {Number}
    */
   get size() {
-    // TODO:
     return this.data.length;
   }
 
@@ -36,7 +34,6 @@ class List {
    * @return {Number}
    */
   index(index) {
-    // TODO:
     return this.data[index];
   }
 
@@ -46,28 +43,28 @@ class List {
    * @return {Number}
    */
   push(item) {
-    // TODO:
     this.data.push(item)
   }
 
   /** 与えられた引数により、リストの要素を削除する
-   * >なんで68 69を入れ替えるとNG？
+   * >なんで69 70を入れ替えるとNG？
    * >this.data[targetIndex]を直接returnにかけないのはundefinedがないから？
    * @param {Number} targetIndex
    *
    * @return {Number}
    */
   remove(targetIndex) {
-    // TODO:
-    let newList = [];
-    let removeNum = undefined;
+    const newList = []; // オブジェトとの一種なので中身を書き変えれる
+    // newList = []; // 配列丸ごと書き換えるのはダメ
+    // let removeNum = undefined; ここで宣言するとfor文で使ってるように見えるので読みづらくなる
+    // constでなるべく定義！
     for (let i = 0; i < this.data.length; i++) {
       if (i !== targetIndex) {
         newList.push(this.data[i]);
       }
     }
+    const removeNum = this.data[targetIndex];
     this.data = newList;
-    removeNum = this.data[targetIndex];
     return removeNum;
   }
 
@@ -77,7 +74,6 @@ class List {
    * @return {Number}
    */
   pop(targetIndex) {
-    // TODO:
     return this.data.pop(targetIndex);
   }
 
@@ -86,7 +82,6 @@ class List {
    * @return {Number}
    */
   shift() {
-    // TODO:
     return this.data.shift();
   }
 
@@ -98,7 +93,6 @@ class List {
    * @return {Number | undefined}
    */
   find(target) {
-    // TODO:
     // if文実装
     // for (let i = 0; i < this.data.length; i++) {
     //   if (target === this.data[i]) {
@@ -123,7 +117,6 @@ class List {
    * @return {Number}
    */
   findIndex(target) {
-    // TODO:
     for (let i = 0; i < this.data.length; i++) {
       if (target === this.data[i]) {
         // return this.data.indexOf(this.data[i]);
@@ -148,20 +141,30 @@ class List {
    * 実際のデータ(this.data)に変更を加えることなく、新しい配列を返す形で実装しましょう。
    *
    * XXX: filter関数は使わずにfor文、while文を活用して実装しましょう
-   *
+   * expect(list.size).toEqual(3) //size ないよねarrayインスタンスに
    * @param {Number} target
    * @return {List}
    */
   filter(target) {
-    // TODO:
+    // コンストラクタを変更すると動かなくなる
     let newList = [];
     for (let i = 0; i < this.data.length; i++) {
       if (target !== this.data[i]) {
         newList.push(this.data[i]);
       }
     }
-    return new List(newList);
+    return new List(newList); //array
   }
+  // じろーさん
+  // const list = new List()
+
+  // for (let i = 0; i < this.data.length; i++) {
+  //   if (target !== this.data[i]) {
+  //     list.push(this.data[i]);
+  //   }
+  // }
+
+  // return list
 }
 
 /**
@@ -190,17 +193,17 @@ class Stack {
    * @param {Number} item
    */
   push(item) {
-    // TODO:
     this.data.push(item);
   }
 
+  // イミュータブル 元配列
+  // 破壊的観点 pop レシーバーが ReactではNG
   /** スタックから要素を取得する
    *
    * @param {Number} item
    * @return {Number}
    */
   pop() {
-    // TODO:
     return this.data.pop();
   }
 
@@ -210,7 +213,6 @@ class Stack {
    * @return {Number}
    */
   peek() {
-    // TODO:
     const index = this.data.length;
     return this.data[index - 1];
   }
@@ -243,7 +245,6 @@ class Queue {
    * @return {Number}
    */
   enqueue(item) {
-    // TODO:
     this.data.push(item);
   }
 
@@ -252,7 +253,6 @@ class Queue {
    * @return {Number}
    */
   dequeue() {
-    // TODO:
     return this.data.shift();
   }
 
@@ -261,7 +261,9 @@ class Queue {
    * @return {Number}
    */
   peek() {
-    // TODO:
+    // NOTE: 何かしら残す時
+    // TODO: やり残し
+    // XXX: 注意して欲しい時
     return this.data[0];
   }
 }

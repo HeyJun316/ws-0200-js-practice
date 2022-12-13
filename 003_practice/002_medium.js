@@ -10,7 +10,24 @@
  *
  */
 function rotate(str, num) {
+  let strArray = str.split('');
+  console.log(strArray);
+  let tmp = '';
+  let strLength = strArray.length;
+  console.log(strLength + 'strLen');
+  let shiftNumber = num % strLength;
+  console.log(shiftNumber + 'shiftNum');
+  if (shiftNumber < 0)
+    for (let i = 0; i < shiftNumber; i++) {
+      tmp = strArray.pop();
+      console.log(tmp + 'tmp');
+      strArray.unshift(tmp);
+      console.log(i);
+    }
+  return strArray.join('');
 }
+
+
 
 /**
  *  母音を除いた文字列
@@ -24,6 +41,15 @@ function rotate(str, num) {
  *
  */
 function removeVowels(str) {
+  const vowels = [a, i, u, e, o];
+  let resultArray = [];
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === vowels[i]) {
+      resultArray.push(str[i]);
+    }
+    continue;
+  }
+  return resultArray;
 }
 
 /**
