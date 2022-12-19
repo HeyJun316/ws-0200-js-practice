@@ -162,19 +162,11 @@ function isPrime(num) {
 *
 */
 function sumWithout4andNext(array) {
-  let withoutNextFlg = 0;
-  let count = 0;
+  let sum = 0; rt
   for (let i = 0; i < array.length; i++) {
-    if (array[i] === 4) {
-      withoutNextFlg = 1;
+    if (array[i] === 4 || array[i - 1] === 4) {
       continue;
     }
-    if (withoutNextFlg === 1) {
-      count++
-      if (count >= 2)
-        continue;
-    }
-
     sum += array[i];
   }
   return sum;

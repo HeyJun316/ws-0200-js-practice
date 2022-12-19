@@ -33,7 +33,12 @@ function length(str) {
  *  for 分の時ぐらいにletを使う
  */
 function reverse(str) {
-  // todo:
+  // todo:for文を逆から 後で見る
+  let tmp = '';
+  for (let i = str.length - 1; i >= 0; i--) {
+    tmp = tmp + str[i];
+  }
+  return tmp;
   // 元々のコード
   // let splitStr = str.split('');
   // let reverseStr = splitStr.reverse();
@@ -161,16 +166,18 @@ function average(array) {
  */
 // todo: DONE!
 function concat(a, b) {
-  const array = [];
-  for (let i = 0; i < a.length; i++) {
-    array.push(a[i]);
-  }
-  for (let i = 0; i < b.length; i++) {
-    array.push(b[i]);
-  }
-  return array;
+  // const array = [];
+  // for (let i = 0; i < a.length; i++) {
+  //   array.push(a[i]);
+  // }
+  // for (let i = 0; i < b.length; i++) {
+  //   array.push(b[i]);
+  // }
+  // return array;
   // 元々のソース
   // return a.concat(b);
+  // ★スプレッドこう文でもOK
+  return [...a, ...b];
 }
 
 /**
@@ -187,6 +194,14 @@ function concat(a, b) {
  * console.count 引数の要素を数える
  * array.length
  * https://qiita.com/sainu/items/7d761c026563a649d046
+ * function length(str) {
+  let strLength = 0;
+
+  while (str[strLength] !== undefined) {
+    strLength++
+  }
+  return strLength;
+}
  */
 //todo: DONE!
 function size(array) {
@@ -217,15 +232,28 @@ function size(array) {
  */
 //todo: DONE!
 function minMax(array) {
-  let max = [];
-  let min = [];
-  if (array.length !== 0) {
-    max = Math.max(...array);
-    min = Math.min(...array);
-    console.log(`max: ${max}, min: ${min}`);
+  // Infinity 定数
+  if (array.length === 0) {
+    return;
   }
+  let max = -Infinity;
+  let min = Infinity;
+  for (let i = 0; i < array.length; i++) {
+    if (max < array[i]) {
+      max = array[i];
+    }
+
+    if (min > array[i]) {
+      min = array[i];
+    }
+  }
+  console.log(`max: ${max}, min: ${min}`);
 }
 
+// if (array.length !== 0) {
+//   max = Math.max(...array);
+//   min = Math.min(...array);
+// }
 /**
  *  連番
  *
