@@ -97,12 +97,14 @@ function countStr(s1, s2) {
  *      level => true
  *
  */
+//文字列の半分の長さまで
+//TODO:
 
 function isPalindrome(str) {
   const strLength = str.length;
   const splitStr = str.split('');
   let strLengthFromBack = strLength - 1;
-  for (let i = 0; i < strLength; i++) {
+  for (let i = 0; i < strLength / 2; i++) {
     if (splitStr[i] !== splitStr[strLengthFromBack - i]) {
       return false
     }
@@ -135,11 +137,19 @@ function isPalindrome(str) {
 一番愚直な解き方はこれになります。
 本当はもっと最適化できるのですが、とりあえずはこれをコードに直せると良いと思います。
  */
-
+//TODO:
+// 大き数字の時forのかしすうをへらせる
+// 偶数は計算する必要なし
+// 約数
+// 100 5 20 4 25 2 50 10 10
+// root numまでの数字を考える平方根 のとこまで聞かれる（）
+// num = 100 の場合 10まで
+// 簡単に作成して熟考していく→本当にこれでいいか？
+// 面接時に最適化のヒントをもらえるかも・・？
 function isPrime(num) {
   if (num === 1) { return false }
   if (num === 2) { return true }
-  for (let i = 2; i < num; i++) {
+  for (let i = 3; i < num; i + 2) {
     if (num % i === 0) {
       return false;
     }
@@ -161,10 +171,17 @@ function isPrime(num) {
 *    [4] => 0
 *
 */
+// TODO:
+// 型付言語の場合動かないかも？java go
+// エッジケースが考えられてるかが肝
+// nullの値を再度確認しておく
+// すうじがあきらあかなのでOK
+// Numberくらすがそんざいする そこに使ってるように見える
 function sumWithout4andNext(array) {
-  let sum = 0; rt
+  let sum = 0;
+  const uncountNum = 4;
   for (let i = 0; i < array.length; i++) {
-    if (array[i] === 4 || array[i - 1] === 4) {
+    if (array[i] === uncountNum || array[i - 1] === uncountNum) {
       continue;
     }
     sum += array[i];
